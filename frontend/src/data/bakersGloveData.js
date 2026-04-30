@@ -30,7 +30,7 @@ export const BESTSELLERS = [
     price: "₹220 / slice",
     priceNote: "Custom cakes from ₹1,800",
     image:
-      "https://images.unsplash.com/photo-1578775887804-699de7086ff9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1464195244916-405fa0a82545?auto=format&fit=crop&w=1200&q=80",
     tag: "Signature",
   },
   {
