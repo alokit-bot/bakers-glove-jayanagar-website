@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bakers-glove-jayanagar-website/static/css/main.bfa7e53a.css",
+    "main.js": "/bakers-glove-jayanagar-website/static/js/main.f8dacb1b.js",
+    "index.html": "/bakers-glove-jayanagar-website/index.html",
+    "main.bfa7e53a.css.map": "/bakers-glove-jayanagar-website/static/css/main.bfa7e53a.css.map",
+    "main.f8dacb1b.js.map": "/bakers-glove-jayanagar-website/static/js/main.f8dacb1b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bfa7e53a.css",
+    "static/js/main.f8dacb1b.js"
+  ]
+}
