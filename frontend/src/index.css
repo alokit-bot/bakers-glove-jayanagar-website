@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Baker's Glove brand tokens */
+    --bg-cream: #FFF8F0;
+    --bg-cream-2: #FBEEDC;
+    --brand-choc: #3B1F0A;
+    --brand-choc-2: #2A1606;
+    --brand-gold: #C9962C;
+    --brand-gold-soft: #E1B658;
+    --brand-rose: #E8B4A0;
+    --brand-ink: #1C0E04;
+    --brand-muted: #6F5A46;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--brand-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "cv11";
+}
+
+.font-display {
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    font-feature-settings: "lnum" 1, "dlig" 1;
+    letter-spacing: -0.01em;
+}
+
+.font-serif-soft {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+}
+
+::selection {
+    background: var(--brand-gold);
+    color: var(--brand-choc);
+}
+
+/* Subtle grain / paper texture overlay */
+.bg-grain {
+    position: relative;
+}
+.bg-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.23 0 0 0 0 0.12 0 0 0 0 0.04 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Gold divider flourish */
+.divider-flourish {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--brand-gold);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+}
+.divider-flourish::before,
+.divider-flourish::after {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--brand-gold));
+}
+.divider-flourish::after {
+    background: linear-gradient(to left, transparent, var(--brand-gold));
+}
+
+/* Reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero cake slow zoom */
+@keyframes slowZoom {
+    from { transform: scale(1.04); }
+    to { transform: scale(1.12); }
+}
+.anim-slow-zoom {
+    animation: slowZoom 14s ease-in-out infinite alternate;
+}
+
+/* Gentle float for the WhatsApp FAB */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+.anim-float { animation: float 3.8s ease-in-out infinite; }
+
+/* Card hover lift */
+.card-lift {
+    transition:
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px -20px rgba(59, 31, 10, 0.35);
+}
+
+.img-grow {
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.group:hover .img-grow {
+    transform: scale(1.08);
+}
+
+/* Pill button */
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 9999px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+.btn-pill:active { transform: translateY(1px); }
+
+.btn-primary {
+    background: var(--brand-gold);
+    color: var(--brand-choc);
+    border: 1px solid var(--brand-gold);
+    box-shadow: 0 10px 30px -10px rgba(201, 150, 44, 0.55);
+}
+.btn-primary:hover {
+    background: var(--brand-choc);
+    color: var(--bg-cream);
+    border-color: var(--brand-choc);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--brand-choc);
+    border: 1px solid var(--brand-choc);
+}
+.btn-outline:hover {
+    background: var(--brand-choc);
+    color: var(--bg-cream);
+}
+
+.btn-ghost-cream {
+    background: transparent;
+    color: var(--bg-cream);
+    border: 1px solid rgba(255, 248, 240, 0.6);
+}
+.btn-ghost-cream:hover {
+    background: var(--bg-cream);
+    color: var(--brand-choc);
+}
+
+/* Scroll-link focus state */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--brand-gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* shadcn fallback variables retained minimally */
+@layer base {
+    * { border-color: rgba(59, 31, 10, 0.12); }
+}
